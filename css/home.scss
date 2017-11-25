@@ -1,0 +1,305 @@
+@charset "utf-8";
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+}
+
+html {
+  font-size:62.5%;
+}
+
+$color-blue: #5FC0CD;
+$font-color-gray: #E1E5E7;
+$background-gray: #EFF0F4;
+$color-white: #ffffff;
+$screen: 640px;
+$percent100: 100%;
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  max-width: $screen;
+}
+
+@mixin fly {
+  z-index: 100;
+  position: fixed;
+}
+
+/** header **/
+
+header {
+  @include fly;
+  width: 100%;
+  height: 4.4rem;
+  top: 0;
+  padding: 1.3rem 0;
+  background-color: $color-blue;
+  line-height: .8rem;
+  max-width: $screen;
+  font-size: 1.5rem;
+  color: $color-white;
+}
+
+@mixin topInput ($Incolor : #FFF) {
+  display: block;
+  width: 80px;
+  height: 40px;
+  line-height: 34px;
+  border: 1px solid $Incolor;
+  background-color: $Incolor;
+}
+
+.topLeft {
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  margin-left: -75px;
+  margin-top: 0;
+  & input {
+    @include topInput(#55A8B3);
+    font-size: 17px;
+    color: #FFF;
+  }
+}
+
+.topRight {
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  width: 60px;
+  height: 34px;
+  margin-left: -5px;
+  margin-top: 0;
+  &  input {
+    @include topInput(#FFF);
+    font-size: 17px;
+    color: #55A8B3;
+  }
+}
+
+.topImg {
+  float: right;
+  margin: 0 10px;
+}
+
+/** nav **/
+
+nav {
+  @include fly;
+  background-color: #FFF;
+  top: 0;
+  width: 100%;
+  height: 43px;
+  margin: 51px auto;
+  padding: 0 0 5px 0;
+  max-width: $screen;
+  border-bottom: 1px solid #C0C0C0;
+}
+
+.form-control {
+  padding: 0 2%;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  text-align: center;
+}
+
+.trim {
+  padding-top: 10px;
+  height: 36px;
+  text-align: center;
+  color: #A9A9A9;
+}
+.trim select {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3em;
+  opacity: 0;
+}
+
+.img01 {
+  position: absolute;
+  right: 0;
+  top: 13px;
+}
+
+.areatop {
+  padding-top: 99px;
+}
+
+/** briefly **/
+
+.briefly {
+  margin: 0 10px;
+  max-width: $screen;
+}
+
+.brieflyLeft {
+  padding: 10px;
+}
+
+.brieflyRight {
+  padding: 10px 20px 10px 10px;
+}
+
+@mixin column($fsize : 14px) {
+  padding: 5px 0 5px 5px;
+  font-size: $fsize;
+}
+
+.First,
+.Third {
+  @include column(14px);
+  color: #A9A9A9;
+}
+
+.Second {
+  @include column(14px);
+  color: #000;
+  padding-left: 30px;
+  font-weight: 600;
+}
+
+.Fourth {
+  text-align: right;
+  padding: 5px 15px 5px 5px;
+  font-size: 14px;
+  p {
+    color: #55A8B3;
+    font-weight: 600;
+  }
+  span {
+    color: #E63B0E;
+  }
+}
+
+
+/** footer **/
+
+footer {
+  background-color: #F9FAFC;
+  bottom: 0;
+  height: 80px;
+  width: 100%;
+  max-width: $screen;
+  @include fly;
+}
+
+.footerLeft {
+  float: left;
+  margin: 10px 40px;
+}
+
+.footerLeft span {
+  display: block;
+  float: left;
+  width: 50px;
+  height: 60px;
+  margin: 10px 0 4px 30px;
+}
+
+.leftImg {
+  background-position: 0 -100px;
+}
+
+.footerMiddle {
+  position: absolute;
+  left: 50%;
+  width: 65px;
+  margin-left: -55px;
+  height: 65px;
+  padding: 0 0;
+}
+
+.footerMiddle span {
+  display: block;
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin: 10px 0 4px 30px;
+}
+
+.middleImg {
+  background-position: 0 -200px;
+}
+
+.footerRight {
+  float: right;
+  margin: 10px 50px  10px 10px;
+}
+
+.footerRight span {
+  display: block;
+  float: right;
+  width: 50px;
+  height: 60px;
+  margin: 10px 0 4px 10px;
+}
+
+.rightImg {
+  background-position: -50px -100px;
+}
+
+/* 小屏幕（平板，大于等于768px） */
+@media (min-width: 768px) {
+  .First, .Second , .Third {
+    @include column(15px);
+  }
+  .trim {
+    font-size: 15px;
+  }
+  .Second {
+    padding-left: 40px;
+  }
+  .online {
+    margin-right: 15px;
+  }
+  .Fourth {
+    font-size: 15px;
+  }
+}
+
+
+/* 中等屏幕（桌面显示器，大于等于992px） */
+@media (min-width: 992px) {
+  .First, .Second , .Third {
+    @include column(16px);
+  }
+  .trim {
+    font-size: 17px;
+  }
+  .Second {
+    padding-left: 45px;
+  }
+  .online {
+    margin-right: 15px;
+  }
+  .Fourth {
+    font-size: 16px;
+  }
+}
+
+/* 大屏幕（大桌面显示器，大于等于1200px） */
+@media (min-width: 1200px) {
+  .First, .Second , .Third {
+    @include column(17px);
+  }
+  .trim {
+    padding-left: 40px;
+    padding-right: 0;
+    font-size: 18px;
+  }
+  .Second {
+    padding-left: 45px;
+  }
+  .online {
+    margin-right: 15px;
+  }
+  .Fourth {
+    font-size: 17px;
+  }
+
+}
